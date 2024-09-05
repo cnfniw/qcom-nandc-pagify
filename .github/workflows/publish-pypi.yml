@@ -3,7 +3,14 @@
 
 name: Publish to PyPI
 
-on: push
+#on: push
+on:
+  workflow_dispatch: # 允许手动触发
+    inputs:
+      branch:
+        description: 'The branch to pull from'
+        default: 'main'
+        required: false
 
 jobs:
   build-n-publish:
